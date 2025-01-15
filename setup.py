@@ -10,10 +10,12 @@ setup(
     url='https://github.com/Hariesh28/Sorting-Algorithms-Library',
     long_description_content_type="text/markdown",
     packages=find_packages(),
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    install_requires=[]
 )

@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include sorting_algorithms *.py
+recursive-include tests *.py
