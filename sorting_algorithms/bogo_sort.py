@@ -1,5 +1,5 @@
 from random import shuffle
-from utils import is_sorted
+from .utils import is_sorted
 
 def bogo_sort(array: list, ascending: bool = True) -> list:
 
