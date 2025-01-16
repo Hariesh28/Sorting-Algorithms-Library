@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="sorting_algorithms",
-    version="1.0.0",
+    name="sorting-techniques",
+    version="1.0.2",
     author="Hariesh",
     description="A Python package with modular sorting algorithm implementations.",
     long_description=open("README.md").read(),

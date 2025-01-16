@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+sorting_techniques/__init__.py
+sorting_techniques/_utils.py
+sorting_techniques/bogo_sort.py
+sorting_techniques/insertion_sort.py
+sorting_techniques/selection_sort.py
+sorting_techniques.egg-info/PKG-INFO
+sorting_techniques.egg-info/SOURCES.txt
+sorting_techniques.egg-info/dependency_links.txt
+sorting_techniques.egg-info/top_level.txt

@@ -1,4 +1,4 @@
-from sorting_algorithms import bogo_sort
+from sorting_techniques import bogo_sort
 
 def main():
     array1 = [3, 1, 2]

@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: sorting-techniques
+Version: 1.0.2
+Summary: A Python package with modular sorting algorithm implementations.
+Home-page: https://github.com/Hariesh28/Sorting-Algorithms-Library
+Author: Hariesh
+Author-email: hariesh28606@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# Sorting-Algorithms-Library
+ A curated collection of sorting algorithm implementations with clear code and examples, ideal for learning and reference.
