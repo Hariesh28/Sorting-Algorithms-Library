@@ -25,3 +25,8 @@ def is_sorted(array: list | tuple, ascending: bool = True) -> bool:
 
     comparator = (lambda x, y: x <= y) if ascending else (lambda x, y: x >= y)
     return all(comparator(array[i], array[i + 1]) for i in range(len(array) - 1))
+
+def swap(inputArray: list[int], index1: int, index2: int) ->None:
+    temp = inputArray[index1]
+    inputArray[index1] = inputArray[index2]
+    inputArray[index2] = temp
