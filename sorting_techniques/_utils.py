@@ -113,16 +113,15 @@ class Heap:
         Returns:
             None: The heap is modified in place.
         """
-        comparator = (lambda x, y: x > y) if self.is_max_heap else (lambda x, y: x < y)
 
         smallest = i  # Parent
         left = 2 * i + 1  # Left Child
         right = 2 * i + 2  # Right Child
 
-        if left < self.size and comparator(self.array[left], self.array[smallest]):
+        if left < self.size and self.array[left] > self.array[smallest]:
             smallest = left
 
-        if right < self.size and comparator(self.array[right], self.array[smallest]):
+        if right < self.size and self.array[right] > self.array[smallest]:
             smallest = right
 
         if smallest != i:
