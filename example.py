@@ -1,9 +1,9 @@
-from sorting_techniques import bogo_sort
+from sorting_techniques import heap_sort
 
 def main():
     array1 = [3, 1, 2]
     print(f"Original array: {array1}")
-    sorted_array1 = bogo_sort(array1, ascending=False)
+    sorted_array1 = heap_sort.heap_sort(array1, ascending=True)
     print(f"Sorted array (ascending): {sorted_array1}\n")
 
 
