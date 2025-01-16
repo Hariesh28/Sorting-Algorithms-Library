@@ -1,7 +1,7 @@
 from ._utils import swap
 
 def selection_sort(inputArray: list[int], Ascending: bool = True) -> list[int]:
-    
+
     """
     Sorts the given list using the Selection Sort algorithm.
 
@@ -21,7 +21,7 @@ def selection_sort(inputArray: list[int], Ascending: bool = True) -> list[int]:
         [3, 2, 1]
     """
 
-    
+
     length = len(inputArray)
     if(length==1): return inputArray
     outputArray = list(inputArray)
@@ -29,6 +29,6 @@ def selection_sort(inputArray: list[int], Ascending: bool = True) -> list[int]:
         candidate = i
         for j in range(i,length):
             if Ascending == (outputArray[candidate] > outputArray[j]):
-                candidate = j 
+                candidate = j
         swap(outputArray,i,candidate)
     return outputArray
