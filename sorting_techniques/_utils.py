@@ -158,9 +158,9 @@ class Heap:
         """
 
         if self.size > 0:
-
             root = self.array[0]
             self.array[0] = self.array[-1]
+            self.array.pop()  # Remove the last element
             self.size -= 1
             self._heapify(0)
 
