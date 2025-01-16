@@ -18,5 +18,3 @@ def swap(inputArray: list[int], index1: int, index2: int) ->None:
     inputArray[index2] = temp
 
 
-print(selection_sort([6,5,4,3,2,1]))
-print(selection_sort([1,2,3,4,5,6],False))
