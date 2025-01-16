@@ -1,4 +1,4 @@
-from sorting_techniques._utils import Heap
+from ._utils import Heap
 
 def heap_sort(array: list, ascending: bool = True) -> list:
 
