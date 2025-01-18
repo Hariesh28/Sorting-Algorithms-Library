@@ -1,6 +1,6 @@
 from ._utils import swap
 
-def selection_sort(inputArray: list[int], Ascending: bool = True) -> list[int]:
+def selection_sort(inputArray: list[int], ascending: bool = True) -> list[int]:
 
     """
     Sorts the given list using the Selection Sort algorithm.
@@ -9,15 +9,15 @@ def selection_sort(inputArray: list[int], Ascending: bool = True) -> list[int]:
 
     Parameters:
         inputArray (list): The list of elements to sort. Elements must be comparable.
-        Ascending (bool): If True, sorts in ascending order; if False, sorts in descending order.
+        ascending (bool): If True, sorts in ascending order; if False, sorts in descending order.
 
     Returns:
         list: The sorted list.
 
     Example:
-        >>> selection_sort([3, 1, 2], Ascending=True)
+        >>> selection_sort([3, 1, 2], ascending=True)
         [1, 2, 3]
-        >>> selection_sort([1, 2, 3], Ascending=False)
+        >>> selection_sort([1, 2, 3], ascending=False)
         [3, 2, 1]
     """
 
@@ -28,7 +28,7 @@ def selection_sort(inputArray: list[int], Ascending: bool = True) -> list[int]:
     for i in range(length):
         candidate = i
         for j in range(i,length):
-            if Ascending == (outputArray[candidate] > outputArray[j]):
+            if ascending == (outputArray[candidate] > outputArray[j]):
                 candidate = j
         swap(outputArray,i,candidate)
     return outputArray
