@@ -118,10 +118,10 @@ class Heap:
         left = 2 * i + 1  # Left Child
         right = 2 * i + 2  # Right Child
 
-        if left < self.size and self.array[left] > self.array[smallest]:
+        if left < self.size and self.array[left] < self.array[smallest]:
             smallest = left
 
-        if right < self.size and self.array[right] > self.array[smallest]:
+        if right < self.size and self.array[right] < self.array[smallest]:
             smallest = right
 
         if smallest != i:

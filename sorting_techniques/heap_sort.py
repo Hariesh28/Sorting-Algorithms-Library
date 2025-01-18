@@ -25,6 +25,5 @@ def heap_sort(array: list, ascending: bool = True) -> list:
     is_max_heap = False if ascending else True
 
     heap = Heap(array, is_max_heap)
-    print(heap.array)
 
     return [heap.extract_root() for _ in range(heap.size)]
