@@ -21,7 +21,6 @@ def merge_sort(inputArray: list[int], ascending: bool = True) -> list[int]:
 
 
     length = len(inputArray)
-    print(inputArray)
     if(length==1): return inputArray
     mid = int(length/2)
     leftArray = merge_sort(inputArray[:mid],ascending)
