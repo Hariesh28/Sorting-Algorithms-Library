@@ -97,7 +97,7 @@ class Heap:
             self.array = [-x for x in array]
 
         else:
-            self.array = array
+            self.array = array[:]
 
         self._build_heap()
 
