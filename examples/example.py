@@ -1,4 +1,4 @@
-from sorting_techniques import bogo_sort, heap_sort, insertion_sort, merge_sort, selection_sort
+from sorting_techniques import bogo_sort, heap_sort, insertion_sort, merge_sort, selection_sort, quick_sort
 
 def display_menu():
     print("Choose a sorting algorithm to run:")
@@ -7,7 +7,8 @@ def display_menu():
     print("3. Insertion Sort")
     print("4. Merge Sort")
     print("5. Selection Sort")
-    print("6. Exit")
+    print("6. Quick Sort")
+    print("7. Exit")
 
 def main():
     array = [3, 1, 2, 5, 4]
@@ -35,6 +36,10 @@ def main():
             sorted_array = selection_sort(array, ascending=True)
             print(f"Sorted array (ascending): {sorted_array}\n")
         elif choice == "6":
+            print(f"Original array: {array}")
+            sorted_array = quick_sort(array)
+            print(f"Sorted array (ascending): {sorted_array}\n")
+        elif choice == "7":
             print("Exiting. Goodbye!")
             break
         else:
