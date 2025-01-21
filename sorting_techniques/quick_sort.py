@@ -23,6 +23,8 @@ def quick_sort(array : list, ascending : bool = True) -> list:
         - The function is not in-place and returns a new sorted list.
     """
 
+    array = array[:]
+
     comparator_left = (lambda x, y: x < y) if ascending else (lambda x, y: x > y)
     comparator_right = (lambda x, y: x > y) if ascending else (lambda x, y: x < y)
 
