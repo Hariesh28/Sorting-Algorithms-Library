@@ -37,7 +37,7 @@ def main():
             print(f"Sorted array (ascending): {sorted_array}\n")
         elif choice == "6":
             print(f"Original array: {array}")
-            sorted_array = quick_sort(array)
+            sorted_array = quick_sort(array, ascending=True)
             print(f"Sorted array (ascending): {sorted_array}\n")
         elif choice == "7":
             print("Exiting. Goodbye!")
