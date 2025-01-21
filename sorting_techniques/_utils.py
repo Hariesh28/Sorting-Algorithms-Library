@@ -1,3 +1,5 @@
+from random import sample, choice
+
 def is_sorted(array: list | tuple, ascending: bool = True) -> bool:
 
     """
@@ -55,6 +57,51 @@ def swap(inputArray: list[int], index1: int, index2: int) -> None:
     inputArray[index1] = inputArray[index2]
     inputArray[index2] = temp
 
+def generate_random_numbers(
+    list_size : int = 10,
+    range_start : int = 0,
+    range_end : int = 20,
+    repetition : bool = True,
+    unique_count : int | None = None
+) -> list[int]:
+
+    """
+    Generate a list of random numbers.
+
+    Parameters:
+    - list_size (int): Total number of elements in the list. Default is 10.
+    - range_start (int): Minimum value of the numbers. Default is 0.
+    - range_end (int): Maximum value of the numbers. Default is 20.
+    - repetition (bool): Whether repetition is allowed in the list. Default is True.
+    - unique_count (int): Number of unique numbers to use. If None, all numbers in the range are considered.
+
+    Returns:
+    - list[int]: A list of random numbers with possible repetition.
+
+    Raises:
+    - ValueError: If unique_count exceeds the possible range of unique numbers.
+    """
+
+    if list_size == 0 or unique_count == 0:
+        return []
+
+    if unique_count is None:
+        unique_count = range_end - range_start + 1
+
+    if unique_count > (range_end - range_start + 1):
+        raise ValueError("unique_count exceeds the possible range of unique numbers.")
+
+    # Generate the pool of unique numbers
+    unique_numbers = sample(range(range_start, range_end+1), unique_count)
+
+    if not repetition:
+        if list_size > unique_count:
+            raise ValueError("list_size cannot exceed unique_count when repetition is False.")
+
+        return unique_numbers[:list_size]
+
+    # Generate the random numbers with repetition
+    return [choice(unique_numbers) for _ in range(list_size)]
 
 class Heap:
 
