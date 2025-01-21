@@ -4,6 +4,7 @@ from .selection_sort import selection_sort
 from .heap_sort import heap_sort
 from .merge_sort import merge_sort
 from .quick_sort import quick_sort
+from ._utils import generate_random_numbers
 
 __all__ = [
     "bogo_sort",
