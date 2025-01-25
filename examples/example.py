@@ -1,4 +1,13 @@
-from sorting_techniques import bogo_sort, heap_sort, insertion_sort, merge_sort, selection_sort, quick_sort, generate_random_numbers
+from sorting_techniques import (
+    bogo_sort,
+    heap_sort,
+    insertion_sort,
+    merge_sort,
+    selection_sort,
+    quick_sort,
+    counting_sort,
+    generate_random_numbers
+)
 
 def display_menu():
     print("Choose a sorting algorithm to run:")
@@ -8,7 +17,8 @@ def display_menu():
     print("4. Merge Sort")
     print("5. Selection Sort")
     print("6. Quick Sort")
-    print("7. Exit")
+    print("7. Counting Sort")
+    print("8. Exit")
 
 def main():
 
@@ -17,7 +27,7 @@ def main():
 
     while True:
         display_menu()
-        choice = input("Enter your choice (1-6): ").strip()
+        choice = input("Enter your choice (1-7): ").strip()
 
         if choice == "1":
             print(f"Original array: {array}")
@@ -50,6 +60,11 @@ def main():
             print(f"Sorted array (ascending): {sorted_array}\n")
 
         elif choice == "7":
+            print(f"Original array: {array}")
+            sorted_array = counting_sort(array, ascending=True)
+            print(f"Sorted array (ascending): {sorted_array}\n")
+
+        elif choice == "8":
             print("Exiting. Goodbye!")
             break
 
