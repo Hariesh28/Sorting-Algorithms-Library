@@ -1,4 +1,4 @@
-def merge_sort(inputArray: list[int], ascending: bool = True) -> list[int]:
+def merge_sort(array : list, ascending : bool = True):
 
     """
     Sorts the given list using the Merge Sort algorithm.
@@ -19,28 +19,34 @@ def merge_sort(inputArray: list[int], ascending: bool = True) -> list[int]:
         [3, 2, 1]
     """
 
+    if len(array) <= 1:
+        return array
 
-    length = len(inputArray)
-    if(length==1): return inputArray
-    mid = int(length/2)
-    leftArray = merge_sort(inputArray[:mid],ascending)
-    rightArray = merge_sort(inputArray[mid:],ascending)
-    outputArray = []
-    leftIndex = 0
-    leftIndexLimit = len(leftArray) - 1
-    rightIndex = 0
-    rightIndexLimit = len(rightArray) - 1
-    while(True):
-        if(ascending == (leftArray[leftIndex]<=rightArray[rightIndex])):
-            outputArray.append(leftArray[leftIndex])
-            if(leftIndex==leftIndexLimit):
-                outputArray.extend(rightArray[rightIndex:])
-                break
-            leftIndex+=1
-            continue
-        outputArray.append(rightArray[rightIndex])
-        if(rightIndex==rightIndexLimit):
-            outputArray.extend(leftArray[leftIndex:])
-            break
-        rightIndex+=1
-    return outputArray
+    mid = len(array) // 2
+
+    left_array = merge_sort(array[:mid], ascending=ascending)
+    right_array = merge_sort(array[mid:], ascending=ascending)
+
+    return merge(left_array, right_array, ascending=ascending)
+
+def merge(array1 : list, array2 : list, ascending : bool = True):
+
+    comparator = (lambda x, y: x <= y) if ascending else (lambda x, y: x >= y)
+
+    left = right = 0
+    merged_array = []
+
+    while left < len(array1) and right < len(array2):
+
+        if comparator(array1[left], array2[right]):
+            merged_array.append(array1[left])
+            left += 1
+
+        else:
+            merged_array.append(array2[right])
+            right += 1
+
+    merged_array.extend(array1[left:])
+    merged_array.extend(array2[right:])
+
+    return merged_array
