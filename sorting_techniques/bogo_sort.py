@@ -24,7 +24,7 @@ def bogo_sort(array: list, ascending: bool = True) -> list:
     """
 
     # Shuffle until sorted
-    while not is_sorted(array, ascending=True):
+    while not is_sorted(array, ascending=ascending):
         shuffle(array)
 
     return array
