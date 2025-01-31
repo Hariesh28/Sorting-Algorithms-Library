@@ -1,3 +1,5 @@
+import os
+import random
 from sorting_techniques import (
     bogo_sort,
     heap_sort,
@@ -9,6 +11,10 @@ from sorting_techniques import (
     radix_sort,
     generate_random_numbers
 )
+
+def clear_screen():
+    """Clears the terminal screen based on the operating system."""
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def display_menu():
     print("Choose a sorting algorithm to run:")
@@ -24,52 +30,56 @@ def display_menu():
 
 def main():
 
-    array = generate_random_numbers()
-    print(f"Generated array: {array}")
+    clear_screen()
 
     while True:
+        array = generate_random_numbers()
+
         display_menu()
         choice = input("Enter your choice (1-8): ").strip()
 
+        ascending = random.choice([True, False])
+        order_str = "ascending" if ascending else "descending"
+
         if choice == "1":
-            print(f"Original array: {array}")
-            sorted_array = bogo_sort(array)
-            print(f"Sorted array: {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = bogo_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "2":
-            print(f"Original array: {array}")
-            sorted_array = heap_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = heap_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "3":
-            print(f"Original array: {array}")
-            sorted_array = insertion_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = insertion_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "4":
-            print(f"Original array: {array}")
-            sorted_array = merge_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = merge_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "5":
-            print(f"Original array: {array}")
-            sorted_array = selection_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = selection_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "6":
-            print(f"Original array: {array}")
-            sorted_array = quick_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = quick_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "7":
-            print(f"Original array: {array}")
-            sorted_array = counting_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = counting_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "8":
-            print(f"Original array: {array}")
-            sorted_array = radix_sort(array, ascending=True)
-            print(f"Sorted array (ascending): {sorted_array}\n")
+            print(f"Generated array: {array}")
+            sorted_array = radix_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "9":
             print("Exiting. Goodbye!")
@@ -77,6 +87,9 @@ def main():
 
         else:
             print("Invalid choice. Please try again.\n")
+
+        input("Press Enter to continue...\n")
+        clear_screen()
 
 if __name__ == "__main__":
     main()
