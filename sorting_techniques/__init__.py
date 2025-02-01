@@ -1,18 +1,24 @@
 """
 Sorting Algorithms Library
 --------------------------
-This package provides efficient implementations of various sorting algorithms. The goal is to provide clear, understandable, and educational implementations of popular sorting algorithms, ideal for learning purposes and reference.
+This package provides efficient implementations of various sorting algorithms.
+The goal is to provide clear, understandable, and educational implementations of
+popular sorting algorithms, ideal for learning purposes and reference.
 
-Algorithms Included:
---------------------
-- **Bogo Sort**: A highly inefficient sorting algorithm based on random shuffling.
-- **Heap Sort**: A comparison-based algorithm that uses a binary heap data structure.
+Standard Sorting Algorithms
+---------------------------
+- **Bubble Sort**: A simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order.
+- **Selection Sort**: A simple comparison-based algorithm that repeatedly selects the smallest element.
 - **Insertion Sort**: A simple comparison-based algorithm that builds the final sorted array one item at a time.
 - **Merge Sort**: A divide-and-conquer algorithm that splits the array into smaller arrays, sorts them, and merges them.
 - **Quick Sort**: A divide-and-conquer algorithm that picks a pivot element and partitions the array into two sub-arrays.
-- **Radix Sort (LSD)**: A non-comparative sorting algorithm that processes the digits of the numbers.
-- **Counting Sort**: A non-comparative sorting algorithm that sorts by counting occurrences of values.
-- **Selection Sort**: A simple comparison-based algorithm that repeatedly selects the smallest element.
+- **Heap Sort**: A comparison-based algorithm that uses a binary heap data structure.
+- **Counting Sort**: A non-comparative sorting algorithm that sorts by counting the occurrences of each value.
+- **LSD (Least Significant Digit) Radix Sort**: A non-comparative sorting algorithm that processes the digits of the numbers from least significant to most significant.
+
+Fun Sorting Algorithms
+----------------------
+- **Bogo Sort**: A highly inefficient sorting algorithm based on random shuffling.
 
 Documentation:
 ---------------
@@ -49,6 +55,7 @@ from .bogo_sort import bogo_sort
 from .heap_sort import heap_sort
 from .quick_sort import quick_sort
 from .merge_sort import merge_sort
+from .bubble_sort import bubble_sort
 from .radix_sort_lsd import radix_sort
 from .counting_sort import counting_sort
 from .selection_sort import selection_sort
@@ -64,6 +71,7 @@ __all__ = [
     "merge_sort",
     "quick_sort",
     "radix_sort",
+    "bubble_sort",
     "counting_sort",
     "insertion_sort",
     "selection_sort",
