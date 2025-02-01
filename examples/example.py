@@ -3,12 +3,13 @@ import random
 from sorting_techniques import (
     bogo_sort,
     heap_sort,
-    insertion_sort,
     merge_sort,
-    selection_sort,
     quick_sort,
-    counting_sort,
     radix_sort,
+    bubble_sort,
+    selection_sort,
+    insertion_sort,
+    counting_sort,
     generate_random_numbers
 )
 
@@ -18,37 +19,37 @@ def clear_screen():
 
 def display_menu():
     print("Choose a sorting algorithm to run:")
-    print("1. Bogo Sort")
-    print("2. Heap Sort")
+    print("1. Bubble Sort")
+    print("2. Selection Sort")
     print("3. Insertion Sort")
     print("4. Merge Sort")
-    print("5. Selection Sort")
-    print("6. Quick Sort")
+    print("5. Quick Sort")
+    print("6. Heap Sort")
     print("7. Counting Sort")
     print("8. Radix Sort")
-    print("9. Exit")
+    print("9. Bogo Sort")
+    print("10. Exit")
 
 def main():
-
     clear_screen()
 
     while True:
         array = generate_random_numbers()
 
         display_menu()
-        choice = input("Enter your choice (1-8): ").strip()
+        choice = input("Enter your choice (1-10): ").strip()
 
         ascending = random.choice([True, False])
         order_str = "ascending" if ascending else "descending"
 
         if choice == "1":
             print(f"Generated array: {array}")
-            sorted_array = bogo_sort(array, ascending=ascending)
+            sorted_array = bubble_sort(array, ascending=ascending)
             print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "2":
             print(f"Generated array: {array}")
-            sorted_array = heap_sort(array, ascending=ascending)
+            sorted_array = selection_sort(array, ascending=ascending)
             print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "3":
@@ -63,12 +64,12 @@ def main():
 
         elif choice == "5":
             print(f"Generated array: {array}")
-            sorted_array = selection_sort(array, ascending=ascending)
+            sorted_array = quick_sort(array, ascending=ascending)
             print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "6":
             print(f"Generated array: {array}")
-            sorted_array = quick_sort(array, ascending=ascending)
+            sorted_array = heap_sort(array, ascending=ascending)
             print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "7":
@@ -82,6 +83,11 @@ def main():
             print(f"Sorted array ({order_str}): {sorted_array}\n")
 
         elif choice == "9":
+            print(f"Generated array: {array}")
+            sorted_array = bogo_sort(array, ascending=ascending)
+            print(f"Sorted array ({order_str}): {sorted_array}\n")
+
+        elif choice == "10":
             print("Exiting. Goodbye!")
             break
 
