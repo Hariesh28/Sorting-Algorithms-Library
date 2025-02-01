@@ -7,9 +7,9 @@ from sorting_techniques import (
     quick_sort,
     radix_sort,
     bubble_sort,
+    counting_sort,
     selection_sort,
     insertion_sort,
-    counting_sort,
     generate_random_numbers
 )
 
