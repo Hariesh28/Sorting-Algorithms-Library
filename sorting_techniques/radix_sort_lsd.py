@@ -46,8 +46,12 @@ def counting_sort_digit_based(array : list[int], exp : int = 0, ascending : bool
         count[digit] += 1
 
     # Update the count array to contain the cumulative count of digits
-    for i in range(1, 10):
-        count[i] += count[i-1]
+    if ascending:
+        for i in range(1, 10):
+            count[i] += count[i - 1]
+    else:
+        for i in range(8, -1, -1):
+            count[i] += count[i + 1]
 
     # Build the result array in a stable manner, iterating from the end of the input array
     for i in range(len(array)-1, -1, -1):
@@ -56,24 +60,21 @@ def counting_sort_digit_based(array : list[int], exp : int = 0, ascending : bool
         count[digit] -= 1
         result[count[digit]] = num
 
-    return result if ascending else result[::-1]
+    return result
 
 def radix_sort(array : list[int], ascending : bool = True) -> list[int]:
 
     """
     Sorts a list of integers using the Radix Sort algorithm, handling both
-    positive and negative numbers. Radix Sort processes the array by sorting
-    numbers based on individual digit positions, starting from the least
-    significant digit to the most significant.
+    positive and negative numbers.
 
     Parameters:
-        array (list[int]): The list of integers to be sorted. Can include
-                           both positive and negative values.
+        array (List[int]): The list of integers to be sorted.
         ascending (bool): If True, the array is sorted in ascending order;
                           if False, in descending order.
 
     Returns:
-        list[int]: A new list containing the sorted integers in the specified order.
+        List[int]: A new list containing the sorted integers in the specified order.
 
     Example:
         >>> radix_sort([170, -45, 75, -90, 802, 24, 2, -66], ascending=True)
@@ -83,24 +84,16 @@ def radix_sort(array : list[int], ascending : bool = True) -> list[int]:
         [802, 170, 75, 24, 2, -45, -66, -90]
 
     Notes:
-        - The algorithm separates the input array into positive and negative
-          numbers for independent sorting. Negative numbers are inverted
-          (treated as positive) for sorting and re-inverted after sorting.
-        - Utilizes the `counting_sort_digit_based` function as a stable subroutine for sorting
-          individual digit positions.
-        - The function is stable and ensures the relative order of elements with
-          the same value is preserved.
+        - The algorithm separates positive and negative numbers for independent sorting.
+        - Utilizes `counting_sort_digit_based` for stable sorting at each digit position.
+        - The function is stable and preserves the relative order of equal elements.
 
     Complexity:
-        - Time Complexity: O(n * d), where n is the number of elements in the
-          array and d is the number of digits in the largest absolute number.
+        - Time Complexity: O(n * d), where n is the number of elements and d is the max digit length.
         - Space Complexity: O(n + k), where k is the range of digits (10).
 
     Limitations:
         - Only works with integer inputs.
-        - Sorting may be slower for arrays with a large range of values due
-          to increased digit processing.
-
     """
 
     if not array:
@@ -114,8 +107,8 @@ def radix_sort(array : list[int], ascending : bool = True) -> list[int]:
     if positive_numbers:
         positive_max_val = max(positive_numbers)
 
-        exp = 1
-        while positive_max_val // exp > 0:
+        exp = 0
+        while positive_max_val // (10**exp) > 0:
             positive_numbers = counting_sort_digit_based(positive_numbers, exp, ascending)
             exp += 1
 
@@ -123,8 +116,8 @@ def radix_sort(array : list[int], ascending : bool = True) -> list[int]:
     if negative_numbers:
         negative_max_val = max(negative_numbers)
 
-        exp = 1
-        while negative_max_val // exp > 0:
+        exp = 0
+        while negative_max_val // (10**exp) > 0:
             negative_numbers = counting_sort_digit_based(negative_numbers, exp, not ascending)
             exp += 1
 
